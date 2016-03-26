@@ -70,8 +70,25 @@ module.exports = function (grunt) {
     watch: {
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['compile-sass']
+        tasks: ['compile-sass'],
+        options: {
+         livereload: true 
+        }
+      },
+      html: {
+        files: '*.html',
+        options: {
+         livereload: true 
+        }
+      }          
+    },
+    connect: {
+    server: {
+      options: {
+        port: 8080,
+        livereload: true
       }
+    }
     }
   });
   
@@ -81,6 +98,6 @@ module.exports = function (grunt) {
       
   grunt.registerTask('compile-sass', ['sass', 'postcss']);
   // Default task.
-  grunt.registerTask('default', ['sass', 'postcss', 'watch']);
+  grunt.registerTask('default', ['sass', 'postcss', 'connect', 'watch']);
 
 };
