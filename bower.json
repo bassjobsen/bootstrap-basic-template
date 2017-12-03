@@ -18,5 +18,8 @@
     "test",
     "tests"
   ],
-  "private": true
+  "private": true,
+  "install" : {
+    "path" : "bower_components"
+  }
 }
